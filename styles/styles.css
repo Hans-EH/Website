@@ -1,0 +1,69 @@
+.boxed {
+  border: 0.5em solid maroon;
+    margin-top: 1em;
+    padding: 0.3em;
+    background-color: rgba(128, 0, 0, 0.116);
+  }
+img{
+  border: 0.5em solid maroon;
+  padding: 0px;
+  margin-top: 1em;
+  width: 100%;
+}
+header {
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: maroon;
+  color: white;
+  font-family: 'Exo 2', sans-serif;
+  padding: 1em;
+  z-index: 100;
+}
+h1,h2,h3,h4{
+  color: maroon;
+}
+
+/* Make sure that padding behaves as expected */
+* {box-sizing:border-box}
+
+/* Container for skill bars */
+.container {
+  width: 100%; /* Full width */
+}
+
+.skillboxed {
+  border: 0.2em solid black;
+    background-color:rgba(0, 0, 0, 0.295);
+    margin-top: 0.3em;
+  }
+.skills {
+  text-align: right; /* Right-align text */
+  color: black; /* White text color */
+  
+}
+
+.technical{background-color: rgba(67, 253, 61, 0.76);}
+.softskills{background-color: rgba(255, 108, 108, 0.87);}
+.theoratical{background-color: rgba(47, 213, 255, 0.767);}
+
+.html {width: 90%;} /* Green */
+.css {width: 80%;} /* Green */
+.clanguage {width: 100%;} /* Green */
+.msoffice {width: 90%;} /* Green */
+.csharp {width: 50%;} /* Green */
+.javascript {width: 80%;} /* Green */
+.python {width: 40%;} /* Green */
+.versioncontrol {width: 70%;} /* Green */
+.groupwork {width: 100%;} /* Green */
+.danish {width: 100%;} /* Green */
+.matlab {width: 50%}
+.math{width: 90%}
+.electronics{width: 60%}
+
+.box {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
