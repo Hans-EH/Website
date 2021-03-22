@@ -18,6 +18,7 @@ new Chart(document.getElementById("pichart"),
     "type": "doughnut", "data": {
       "labels": ["C","C#","HTML", "CSS", "JavaScript","Electronics"],
       "datasets": [{
+        //"borderWidth": [20],
         "label": "My First Dataset", "data": [expC,expCsharp,expHTML,expCSS,expJS,expElectronics],
         "backgroundColor": [colorC,colorCsharp,colorHTML,colorCSS,colorJS,colorElectronics]
       }]
