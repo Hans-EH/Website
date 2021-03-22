@@ -12,7 +12,6 @@ let expElectronics = 2;
 let colorElectronics = "rgb(0, 255, 0)"
 let expJava = 1;
 let colorJava = "rgb(255, 51, 0)";
-//Backend should be cold colors, front end should be warm colors, physical projects should be green variants
 
 var ctx = document.getElementById('pichart').getContext('2d');
 new Chart(document.getElementById("pichart"),
@@ -21,8 +20,16 @@ new Chart(document.getElementById("pichart"),
       "labels": ["C","C#","HTML", "CSS", "JavaScript","Electronics","Java"],
       "datasets": [{
         //"borderWidth": [20],
-        "label": "My First Dataset", "data": [expC,expCsharp,expHTML,expCSS,expJS,expElectronics,expJava],
+        "label": "Project Categories", 
+        "data": [expC,expCsharp,expHTML,expCSS,expJS,expElectronics,expJava],
         "backgroundColor": [colorC,colorCsharp,colorHTML,colorCSS,colorJS,colorElectronics,colorJava]
       }]
     }
   });
+
+  $("#toggle").click(function() {
+    chartInstance.data.datasets.forEach(function(ds) {
+     ds.hidden = !ds.hidden;
+   });
+   chartInstance.update();
+ });
