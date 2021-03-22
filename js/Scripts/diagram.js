@@ -10,17 +10,19 @@ let expCsharp = 1;
 let colorCsharp = "rgb(0, 153, 51)";
 let expElectronics = 2;
 let colorElectronics = "rgb(0, 255, 0)"
+let expJava = 1;
+let colorJava = "rgb(255, 51, 0)";
 //Backend should be cold colors, front end should be warm colors, physical projects should be green variants
 
 var ctx = document.getElementById('pichart').getContext('2d');
 new Chart(document.getElementById("pichart"),
   {
     "type": "doughnut", "data": {
-      "labels": ["C","C#","HTML", "CSS", "JavaScript","Electronics"],
+      "labels": ["C","C#","HTML", "CSS", "JavaScript","Electronics","Java"],
       "datasets": [{
         //"borderWidth": [20],
-        "label": "My First Dataset", "data": [expC,expCsharp,expHTML,expCSS,expJS,expElectronics],
-        "backgroundColor": [colorC,colorCsharp,colorHTML,colorCSS,colorJS,colorElectronics]
+        "label": "My First Dataset", "data": [expC,expCsharp,expHTML,expCSS,expJS,expElectronics,expJava],
+        "backgroundColor": [colorC,colorCsharp,colorHTML,colorCSS,colorJS,colorElectronics,colorJava]
       }]
     }
   });
