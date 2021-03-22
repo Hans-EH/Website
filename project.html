@@ -18,6 +18,7 @@
     crossorigin="anonymous"></script>
 
   <!-- Chart.js dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="src/js/Chart.js-2.9.4/dist/Chart.min.js"></script>
 </head>
 
@@ -32,7 +33,7 @@
           <div class="container">
             <a class="navbar-brand" href="index.html">
               <h1><b>Hans Heje</b></h1>
-              <h5><i>Software Engineer</i></h5>
+              <h5><i>Stud. Software Engineer</i></h5>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,54 +66,22 @@
 
   <!-- NAVBAR END -->
   <!-- CONTENT -->
-  <div class="container mt-4">
+  <div class="container">
     <div class="row">
-      <!-- Venstre side-->
-      <div class="col-md-6 col-sm-12">
-        <h4 class="mb-3">Add NonSmart-Device</h4>
-
-        <!-- Form to add device-->
-        <form>
-          <!-- Select Type-->
-          <div class="mb-3">
-            <label for="deviceSelect"> Select Type of Device </label>
-            <select class="form-select" aria-describedby="deviceSelect">
-              <option selected>Open this select menu</option>
-              <option value="1">Vaskemaskine</option>
-              <option value="2">Tørretumbler</option>
-              <option value="3">Komfur</option>
-              <option value="4">Fryser</option>
-              <option value="5">Køleskab</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" />
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" />
-          </div>
-          <button type="submit" class="btn btn-primary">Add</button>
-        </form>
-      </div>
-
-      <!-- højre side -->
-      <div class="col-md-6 col-sm-12">
-        <h4 class="mb-3">Add Smart-Device</h4>
-
-        <div class="d-grid">
-          <button class="btn btn-primary btn-block">
-            Search for Devices..
-          </button>
+      <div class="col-12 col-md-4">
+        <div class="boxed">
         </div>
-
-        <button class="btn btn-primary btn-block">
-          Search for Devices..
-        </button>
+      </div>
+      <div class="col-12 col-md-8">
+        <div class="boxed">
+          </div>
       </div>
     </div>
+
   </div>
+  <!-- Form to add device-->
+  <!-- Select Type-->
+
   <!-- CONTENT END -->
 
   <!-- Chart script-->
