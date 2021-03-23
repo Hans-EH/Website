@@ -23,6 +23,7 @@ new Chart(document.getElementById("pichart"),
         "label": "Project Categories", 
         "data": [expC,expCsharp,expHTML,expCSS,expJS,expElectronics,expJava],
         "backgroundColor": [colorC,colorCsharp,colorHTML,colorCSS,colorJS,colorElectronics,colorJava]
+        //"hidden": true;
       }]
     }
   });
