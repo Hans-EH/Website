@@ -22,11 +22,50 @@
 
 <body>
   <!-- NAVBAR -->
+  <header id="header">
+    <div class="row">
+      <div class="col-0 col-md-1"></div>
+      <div class="col-12 col-md-10">
+        <nav class="navbar-fixed-top navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+            <a class="navbar-brand" href="index.html">
+              <h1><b>Hans Heje</b></h1>
+              <h5><i>Stud. Software Engineer</i></h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="projects.html">
+                    <h2>Projects</h2>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">
+                    <h2>Contact</h2>
+                  </a>
+                </li>
+                <li>
+              </ul>
+            </div>
+
+          </div>
+      </div>
+      </nav>
+    </div>
+    </div>
+    </div>
+    </div>
+  </header>
   <!-- NAVBAR END -->
   <!-- CONTENT -->
 
   <div class="container">
-    <h1>Stopwatch!</h1>
+    <h1>Opgaver:</h1>
+    <h2>Stopwatch!</h2>
     <button onclick="start()">Start</button>
     <button onclick="stop()">Stop</button>
     <button onclick="reset()">Reset</button>
@@ -64,39 +103,46 @@
         document.getElementById('timeField').textContent = timeElapsed;
       }
     </script>
-        <title>Simple fetch()</title>
-    <script>
-      // Call the fetch() method to fetch the image, and store it in a variable
-      fetch('https://c.tadst.com/gfx/750w/fb-stopwatch2.png')
-      // Use a then() block to respond to the promise's successful completion
-      // by taking the returned response and running blob() on it to transform it into a blob
-      // blob() also returns a promise; when it successfully completes it returns
-      // The blob object in the callback
-      .then(response => {
-        // The promise fetch() does NOT reject on HTTP errors,
-        // so we need to check the boolean Response.ok and throw manually a new Error()
-        // for the promise2 to be rejected (for example when a 404 occurs).
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        } else {
-          return response.blob();
-        }
-      })
-      .then(myBlob => {
-        // Create an object URL that points to the blob object
-        let objectURL = URL.createObjectURL(myBlob);
-        // Create an <img> element to display the blob (it's an image)
-        let image = document.createElement('img');
-        // Set the src of the <img> to the object URL so the image displays it
-        image.src = objectURL;
-        // Append the <img> element to the DOM
-        document.body.appendChild(image);
-      })
-      // If there is a problem, log a useful error message to the console
-      .catch(e => {
-        console.log('There has been a problem with your fetch operation: ' + e.message);
-      });
-    </script>
+    <div class="row">
+      <div class="col-6 col-md-8">
+        <h2>Simple fetch()</h2>
+        <h3>Promises</h3>
+        <script>
+          // Call the fetch() method to fetch the image, and store it in a variable
+          fetch('https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG')
+            // Use a then() block to respond to the promise's successful completion
+            // by taking the returned response and running blob() on it to transform it into a blob
+            // blob() also returns a promise; when it successfully completes it returns
+            // The blob object in the callback
+            .then(response => {
+              // The promise fetch() does NOT reject on HTTP errors,
+              // so we need to check the boolean Response.ok and throw manually a new Error()
+              // for the promise2 to be rejected (for example when a 404 occurs).
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              } else {
+                return response.blob();
+              }
+            })
+            .then(myBlob => {
+              // Create an object URL that points to the blob object
+              let objectURL = URL.createObjectURL(myBlob);
+              // Create an <img> element to display the blob (it's an image)
+              let image = document.createElement('img');
+              // Set the src of the <img> to the object URL so the image displays it
+              image.src = objectURL;
+              // Append the <img> element to the DOM
+              document.body.appendChild(image);
+            })
+            // If there is a problem, log a useful error message to the console
+            .catch(e => {
+              console.log('There has been a problem with your fetch operation: ' + e.message);
+            });
+        </script>
+
+      </div>
+    </div>
+    
 
 
 
