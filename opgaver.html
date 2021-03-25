@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/styles.css" />
+
+  <title>Devices - App</title>
+  <!-- Bootstrap CSS dependency-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+  <!-- Bootstrap JS dependency-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+
+  <!-- Chart.js dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <!-- plotting dependencies-->
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header id="header">
+    <div class="row">
+      <div class="col-0 col-md-1"></div>
+      <div class="col-12 col-md-10">
+        <nav class="navbar-fixed-top navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+            <a class="navbar-brand" href="index.html">
+              <h1><b>Hans Heje</b></h1>
+              <h5><i>Stud. Software Engineer</i></h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="projects.html">
+                    <h2>Projects</h2>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">
+                    <h2>Contact</h2>
+                  </a>
+                </li>
+                <li>
+              </ul>
+            </div>
+
+          </div>
+      </div>
+      </nav>
+    </div>
+    </div>
+    </div>
+    </div>
+  </header>
+  <!-- NAVBAR END -->
+  <!-- CONTENT -->
+
+  <div class="container">
+    <h1>Opgaver:</h1>
+    <h2>Stopwatch!</h2>
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>
+    <p id="timeField">0</p>
+
+    <input type="file" id="uploadfile" onChange="readImage(this)">
+    <div id='myDiv'>
+      <!-- Plotly chart will be drawn inside this DIV -->
+    </div>
+    <canvas id="histogram"></canvas>
+    <canvas id="histogram"></canvas>
+
+    <script>
+      let keys = [10, 22, 31, 4, 15, 28, 17, 88, 59];
+      let x = [];
+      let xCombined = [];
+      let m = keys.length;
+      let labels = [];
+
+
+      //hash function
+      for (let i = 0; i < m; i++) {
+        x[i] = keys[i] % m;
+        console.log("keys amount: " + keys.length + ", key: " + keys[i] + ", After hashing: " + x[i] + "\n");
+      }
+      x = x.sort();
+      for (let i = 0; i < m; i++) {
+        labels[i] = i
+        let counter = 0;
+        xCombined[i] = 0;
+        for (let j = 0; j < m; j++) {
+          if (labels[i] == x[j]) {
+            counter++;
+            console.log(x, labels);
+          }
+        }
+        xCombined[i] = counter;
+      }
+
+      console.log(xCombined);
+      var ctx = document.getElementById('histogram').getContext('2d');
+      var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+        // The data for our dataset
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Hash function',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: xCombined,
+          }]
+        },
+
+        // Configuration options go here
+        options: {}
+      });
+    </script>
+
+    <script>
+
+      function hashFunction() {
+        let hash = []
+        let keys = [2, 12, 22, 32];
+        let m = 10;
+        let k = 0;
+        let j = 0;
+        let index = 0;
+
+        //keys.length < m
+        for (let i = 0; i < m; i++) {
+          hash[i] = 0;
+        }
+        for (let i = 0; i < m; i++) {
+          j = 0;
+          //type hash function her
+          k = 0;
+          while (k === 0) {
+            index = ((keys[i] + j) % m)
+            if (hash[index] == 0) {
+              hash[index] = keys[i];
+              k = 1;
+            }
+            else {
+              j++;
+            }
+          }
+        }
+        return hash
+        console.log("m: " + m + ", keys: " + keys + ", Hash: " + hash);
+      }
+hashFunction();
+    </script>
+
+    <script>
+      let timeElapsed = 0;
+      let createClock = null;
+      let started = false;
+      function displayTime() {
+        timeElapsed += 0.05;
+        document.getElementById('timeField').textContent = timeElapsed;
+      }
+
+      function start() {
+        if (!started) {
+          createClock = setInterval(displayTime, 50);
+          started = true;
+          console.log("Started timer");
+        }
+        else console.log("Timer already started");
+
+      }
+
+      function stop() {
+        clearInterval(createClock)
+        started = false;
+        console.log("Stopped timer");
+      }
+
+      function reset() {
+        stop()
+        timeElapsed = 0;
+        document.getElementById('timeField').textContent = timeElapsed;
+      }
+    </script>
+    <div class="row">
+      <div class="col-6 col-md-8">
+        <h2>Simple fetch()</h2>
+        <h3>Promises</h3>
+        <script>
+          // Call the fetch() method to fetch the image, and store it in a variable
+          fetch('https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG')
+            // Use a then() block to respond to the promise's successful completion
+            // by taking the returned response and running blob() on it to transform it into a blob
+            // blob() also returns a promise; when it successfully completes it returns
+            // The blob object in the callback
+            .then(response => {
+              // The promise fetch() does NOT reject on HTTP errors,
+              // so we need to check the boolean Response.ok and throw manually a new Error()
+              // for the promise2 to be rejected (for example when a 404 occurs).
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              } else {
+                return response.blob();
+              }
+            })
+            .then(myBlob => {
+              // Create an object URL that points to the blob object
+              let objectURL = URL.createObjectURL(myBlob);
+              // Create an <img> element to display the blob (it's an image)
+              let image = document.createElement('img');
+              // Set the src of the <img> to the object URL so the image displays it
+              image.src = objectURL;
+              // Append the <img> element to the DOM
+              document.body.appendChild(image);
+            })
+            // If there is a problem, log a useful error message to the console
+            .catch(e => {
+              console.log('There has been a problem with your fetch operation: ' + e.message);
+            });
+        </script>
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+</body>
+
+</html>
